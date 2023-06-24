@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import React, { useState } from 'react';
 import ListingPage from './components/ListingPage.js';
 import DetailsPage from './components/DetailsPage.js';
+import BookmarkPage from './components/BookmarkPage.js';
 
 function App() {
     const [showList,setShowList] = useState(false);
@@ -33,6 +34,7 @@ function App() {
             </>
                     )}
                      {showList && <Route path="/details/:pokemonID" element={<DetailsPage handleClickList={handleClickList} />} />}
+                     {showList && <Route path="/bookmark" element={<BookmarkPage handleClickList={handleClickList} />} />}
                 </Routes>
             </div>
         </Router>

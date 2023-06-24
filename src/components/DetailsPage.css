@@ -42,6 +42,10 @@ pokemon-details pokemonName {
     height: 75vh;
     text-align: center;
     position: relative;
+    background-image: url('../images/about.jpg');
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position:center;
 }
 
     .about h2 {
@@ -49,6 +53,7 @@ pokemon-details pokemonName {
         top: 0;
         left: 50%;
         transform: translateX(-50%);
+
     }
 
 .pokemon-table {
@@ -72,7 +77,6 @@ pokemon-details pokemonName {
     .pokemon-table tbody tr:hover {
         background-color: #e6e6e6;
     }
-
 .stats {
     display: flex;
     align-items: center;
