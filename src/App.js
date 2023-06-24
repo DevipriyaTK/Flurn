@@ -2,6 +2,7 @@ import SearchPage from './components/SearchPage.js';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import React, { useState } from 'react';
 import ListingPage from './components/ListingPage.js';
+import DetailsPage from './components/DetailsPage.js';
 
 function App() {
     const [showList,setShowList] = useState(false);
@@ -31,6 +32,7 @@ function App() {
               />
             </>
                     )}
+                     {showList && <Route path="/details/:pokemonID" element={<DetailsPage handleClickList={handleClickList} />} />}
                 </Routes>
             </div>
         </Router>

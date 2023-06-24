@@ -12,8 +12,8 @@ function SearchPage({ handleClickList }) {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const handleInputChange = (event) => {
-    setSearchTerm(event.target.value);
+  const handleInputChange = (value) => {
+    setSearchTerm(value || '');
   };
 
   const handleSearch = () => {
@@ -53,7 +53,7 @@ function SearchPage({ handleClickList }) {
                   className="input"
                   type="text"
                   value={searchTerm}
-                  onChange={handleInputChange}
+                  onChange={(e) => handleInputChange(e.target.value.toLowerCase())}
                   placeholder="Enter a Pokemon name..."
               />
               <button onClick={handleSearch} className="button">
@@ -70,7 +70,7 @@ function SearchPage({ handleClickList }) {
               </div>
           ) : (
               <>
-          {error && <div><h4>Incorrect Name</h4></div>}
+          {error && <div><h2 className="h2">Incorrect Name</h2></div>}
                       {pokemonData && (
                           <div className={`pokemon-card ${pokemonData?.types.find((type) => type.slot === 1)?.type.name === 'grass' ? 'green' :
                               pokemonData?.types.find((type) => type.slot === 1)?.type.name === 'fire' ? 'red' :

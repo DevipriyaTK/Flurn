@@ -70,7 +70,7 @@ function ListingPage({ handleClickList }) {
   }, [nextPage, loadPokemonData]);
 
   useEffect(() => {
-    loadPokemonData('https://pokeapi.co/api/v2/pokemon?limit=500');
+    loadPokemonData('https://pokeapi.co/api/v2/pokemon?limit=100');
   }, [loadPokemonData]);
 
   useEffect(() => {

@@ -8,7 +8,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width:100%
 }
 @media screen and (max-width: 768px) {
     .container {
@@ -217,10 +216,14 @@ body {
 }
 
 .pokemon-name {
-    color: black;
-    font-weight: bold
+    color: white;
+    font-weight: bold;
 }
 
 .pokemon-link {
     text-decoration: none
+}
+.h2 {
+    color: #FB6C6C;
+    font-weight: bold;
 }
