@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import SearchPage from './components/SearchPage.js';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import ListingPage from './components/ListingPage.js';
 
 function App() {
+    const [showList,setShowList] = useState(false);
+
+    const handleClickList = () => {
+        setShowList(true);
+    };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+            <div className="App">
+                <Routes>
+                    <Route
+                        path="/search"
+                        element={<SearchPage handleClickList={handleClickList} />}
+                    index/>
+                    {showList && <Route path="/list" element={<ListingPage handleClickList={handleClickList} />} />}
+                </Routes>
+            </div>
+        </Router>
   );
 }
 
