@@ -1,0 +1,130 @@
+.pokemon-details {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #C5C5C5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    margin: 10px;
+    width: 90vw;
+    height: 80vh;
+    text-align: center;
+    position: relative;
+}
+
+
+pokemon-details pokemonName {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pokemonImage {
+    flex: 1;
+    max-width: 100%;
+    height: auto;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    margin: 10px;
+    width: 30vw;
+    height: 75vh;
+    text-align: center;
+    position: relative;
+}
+
+    .about h2 {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+.pokemon-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .pokemon-table td {
+        padding: 8px;
+        border: 1px solid #ccc;
+    }
+
+        .pokemon-table td:first-child {
+            font-weight: bold;
+        }
+
+    .pokemon-table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .pokemon-table tbody tr:hover {
+        background-color: #e6e6e6;
+    }
+
+.stats {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    margin: 10px;
+    width: 30vw;
+    height: 75vh;
+    text-align: center;
+    position: relative;
+}
+
+.bookmark-icon {
+    cursor: pointer;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.loading1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.rotating-image {
+    animation: rotation 1s linear infinite;
+    align-items: center;
+    height: 50px; /* Adjust the height to your desired size */
+    width: 50px; /* Adjust the width to your desired size */
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.charts {
+    width: 50px;
+    height: 50px
+}

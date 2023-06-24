@@ -8,6 +8,19 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width:100%
+}
+@media screen and (max-width: 768px) {
+    .container {
+        /* Add your styles for smaller screens here */
+    }
+}
+
+/* Adjustments for larger screens */
+@media screen and (min-width: 1200px) {
+    .container {
+        /* Add your styles for larger screens here */
+    }
 }
 
 .heading {
@@ -147,18 +160,20 @@ body {
     .pokemon-card.darkYellow {
         background-color: #f9be00;
     }
+    .pokemon-card.black {
+        background-color: lightgrey;
+    }
 
 
 .pokemon-image {
     width: 150px;
     height: 150px;
-    filter: blur(4px);
     transition: filter 0.01s ease-in-out;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .pokemon-image {
-        filter: blur(10px);
+        filter: blur(0);
     }
 }
 
@@ -175,6 +190,25 @@ body {
     align-items: center
 }
 
+@media screen and (max-width: 1024px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(3, 1fr); /* Adjust to 3 columns for smaller screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(1, 1fr); /* Adjust to 1 column for even smaller screens */
+    }
+}
+
+
 .pokemon-grid1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -183,7 +217,7 @@ body {
 }
 
 .pokemon-name {
-    color: white;
+    color: black;
     font-weight: bold
 }
 

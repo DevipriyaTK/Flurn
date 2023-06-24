@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import pokeballSvg from '../pokeball.svg';
 import './SearchPage.css';
+import './DetailsPage.css';
 
 function SearchPage({ handleClickList }) {
   const [searchTerm, setSearchTerm] = useState('');
