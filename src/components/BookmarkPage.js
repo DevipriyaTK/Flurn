@@ -13,7 +13,7 @@ function BookmarkPage({ handleClickList }) {
       const parsedPokemon = JSON.parse(storedPokemon);
       setFavoritePokemon(parsedPokemon);
     }
-    document.title = 'Pokedex - Favorite Pokémon';
+    document.title = 'Pokedex - Favorite Pokemon';
   }, []);
 
   const handlePokemonClick = (pokemonID) => {
