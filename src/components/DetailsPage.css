@@ -14,7 +14,7 @@
     position: relative;
 }
 @media (max-width: 768px) {
-    .pokemon-details,stats,about,charts,pokemon {
+    .pokemon-details,stats,about,charts {
         flex-direction: column; /* Adjusting for smaller screens */
         height: auto; /* Removing fixed height */
         max-height: 80vh; /* Adding max-height for smaller screens */
@@ -22,23 +22,6 @@
     }
 }
 
-/* Adjustments for larger screens */
-@media screen and (min-width: 1200px) {
-    .pokemon-details, stats, about, charts, pokemon {
-        flex-direction: column; /* Adjusting for smaller screens */
-        height: auto; /* Removing fixed height */
-        max-height: 80vh; /* Adding max-height for smaller screens */
-        overflow-y: auto; /* Adding scrollable behavior if content exceeds max-height */
-    }
-}
-@media screen and (max-width: 480px) {
-    .pokemon-details, stats, about, charts, pokemon {
-        flex-direction: column; /* Adjusting for smaller screens */
-        height: auto; /* Removing fixed height */
-        max-height: 80vh; /* Adding max-height for smaller screens */
-        overflow-y: auto; /* Adding scrollable behavior if content exceeds max-height */
-    }
-}
 
 pokemon-details pokemonName {
     position: absolute;
@@ -101,7 +84,7 @@ pokemon-details pokemonName {
             font-weight: bold;
         }
 
-    
+    .
 
 .stats {
     display: flex;
