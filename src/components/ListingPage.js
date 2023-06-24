@@ -10,12 +10,12 @@ function ListingPage({ handleClickList }) {
     const [loading, setLoading] = useState(false);
     const [nextPage, setNextPage] = useState(null);
     const [pokemonData, setPokemonData] = useState([]);
-    const [selectedPokemon, setSelectedPokemon] = useState(null);
+    const [selectedPokemon] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
         loadPokemonData('https://pokeapi.co/api/v2/pokemon?limit=10');
-    }, []);
+    }, );
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,7 +32,7 @@ function ListingPage({ handleClickList }) {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [nextPage]);
+    }, );
 
     const loadPokemonData = async (url) => {
         setLoading(true);
