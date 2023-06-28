@@ -1,5 +1,6 @@
 .pokemon-details {
     display: flex;
+    flex-direction: row;
     align-items: center;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -13,17 +14,24 @@
     text-align: center;
     position: relative;
 }
-@media (max-width: 768px) {
-    .pokemon-details,stats,about,charts {
-        flex-direction: column; /* Adjusting for smaller screens */
-        height: auto; /* Removing fixed height */
-        max-height: 80vh; /* Adding max-height for smaller screens */
-        overflow-y: auto; /* Adding scrollable behavior if content exceeds max-height */
+@media screen and (max-width: 1024px) {
+    .pokemon-details,pokemon-table,charts,stats,about,h2{
+      
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pokemon-details, pokemon-table, charts, stats, about, h2 {
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .pokemon-details, pokemon-table, charts, stats, about, h2 {
     }
 }
 
 
-pokemon-details pokemonName {
+.pokemon-details .pokemonName {
     position: absolute;
     top: 0;
     left: 50%;
@@ -38,7 +46,9 @@ pokemon-details pokemonName {
 
 .about {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 16px;
@@ -52,39 +62,29 @@ pokemon-details pokemonName {
     position: relative;
     background-image: url('../images/about.jpg');
     background-size: cover;
-    background-repeat:no-repeat;
-    background-position:center;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
     .about h2 {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-
+        position: relative;
+        top:-15%
+        
     }
 
-.pokemon-table {
-    width: 100%;
-    border-collapse: collapse;
-}
+    .about pokemon-table {
+        width: 100%;
+        border-collapse: collapse;
+        position:relative;
+        top: 150%
 
-.pokemon-table {
-    width: 100%;
-    border-collapse: collapse;
-}
+    }
 
     .pokemon-table td {
         padding: 8px;
         border: none; /* Remove border */
         color: initial; /* Reset text color */
     }
-
-        .pokemon-table td:first-child {
-            font-weight: bold;
-        }
-
-    .
 
 .stats {
     display: flex;
@@ -138,6 +138,6 @@ pokemon-details pokemonName {
 }
 
 .charts {
-    width: 50px;
-    height: 50px
+    width: 50%;
+    height: 50%
 }

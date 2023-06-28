@@ -170,6 +170,11 @@ body {
     transition: filter 0.01s ease-in-out;
 }
 
+@media screen and (max-width: 480px) {
+    .pokemon- image{
+       filter: blur(0);
+    }
+}
 @media (max-width: 768px) {
     .pokemon-image {
         filter: blur(0);
