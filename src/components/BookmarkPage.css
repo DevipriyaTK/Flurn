@@ -1,0 +1,29 @@
+.custom-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FB6C6C;
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.custom-alert-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+    .custom-alert-content h2 {
+        margin: 0;
+        color:white;
+    }
+
+    .custom-alert-content button {
+        padding: 10px 20px;
+       
+        
+    }

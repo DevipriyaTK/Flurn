@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import './SearchPage.css';
 import './DetailsPage.css';
+import './BookmarkPage.css';
 import Chart from 'chart.js/auto';
 import { useParams, useNavigate } from 'react-router-dom';
 import pokeballSvg from '../pokeball.svg';
@@ -12,6 +13,7 @@ function DetailsPage({ handleClickList }) {
     const [error, setError] = useState(null);
     const { pokemonID } = useParams();
     const [isBookmarked, setIsBookmarked] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -82,7 +84,8 @@ function DetailsPage({ handleClickList }) {
         }
 
         localStorage.setItem('favoritePokemon', JSON.stringify(bookmarkedPokemonArray));
-        window.alert(`${capitalizeFirstLetter(pokemonData.name)} has been ${isBookmarked ? 'removed from favourite' : 'added to favourite'}.`);
+        setShowAlert(true); // Show the alert
+
     };
     const handleLoadList = () => {
         handleClickList(); // Call the handleClickList function from props
@@ -91,6 +94,9 @@ function DetailsPage({ handleClickList }) {
     const handleListPage = () => {
         handleClickList(); // Call the handleClickList function from props
         navigate('/list'); // Navigate to the '/list' route
+    };
+    const handleAlertClose = () => {
+        setShowAlert(false); // Hide the alert
     };
 
     return (
@@ -147,6 +153,7 @@ function DetailsPage({ handleClickList }) {
                                 <td><strong>Species</strong></td>
                                 <td>{capitalizeFirstLetter(pokemonData.types.map((type) => type.type.name).join(", "))}</td>
                             </tr>
+                            
                         </tbody>
 
                     </table>
@@ -165,11 +172,30 @@ function DetailsPage({ handleClickList }) {
                     Explore more Pokemons
                 </button>
             </div>
+            <div className="alert">
+                {showAlert && (
+                    <CustomAlert
+                        message={`${capitalizeFirstLetter(pokemonData.name)} has been ${isBookmarked ? 'added to favourite' : 'removed from favourite'}.`}
+                        onClose={handleAlertClose}
+                    />
+                )}
 
+            </div>
+            
         </div>
     );
 }
 
+function CustomAlert({ message, onClose }) {
+    return (
+        <div className="custom-alert">
+            <div className="custom-alert-content">
+                <h2>{message}</h2>
+                <button onClick={onClose}>OK</button>
+            </div>
+        </div>
+    );
+}
 function StatsChart({ stats }) {
     const chartRef = useRef(null);
 

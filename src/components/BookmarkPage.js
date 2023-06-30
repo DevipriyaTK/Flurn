@@ -3,7 +3,9 @@ import './SearchPage.css';
 import React, { useEffect, useState } from 'react';
 
 function BookmarkPage({ handleClickList }) {
-  const [favoritePokemon, setFavoritePokemon] = useState([]);
+    const [favoritePokemon, setFavoritePokemon] = useState([]);
+    const [removedPokemonName, setRemovedPokemonName] = useState('');
+    const [showAlert, setShowAlert] = useState(false); 
     const navigate = useNavigate();
 
 
@@ -23,7 +25,9 @@ function BookmarkPage({ handleClickList }) {
         const updatedFavoritePokemon = favoritePokemon.filter((pokemon) => pokemon.id !== pokemonID);
         setFavoritePokemon(updatedFavoritePokemon);
         localStorage.setItem('favoritePokemon', JSON.stringify(updatedFavoritePokemon));
-        window.alert(`${capitalizeFirstLetter(pokemonName)} has been removed from favorites.`);
+        setRemovedPokemonName(pokemonName);
+        setShowAlert(true);
+        
     };
     const capitalizeFirstLetter = (name) => {
         return name.charAt(0).toUpperCase() + name.slice(1);
@@ -32,13 +36,21 @@ function BookmarkPage({ handleClickList }) {
         handleClickList(); // Call the handleClickList function from props
         navigate('/list'); // Navigate to the '/list' route
     };
+    const handleAlertClose = () => {
+        setRemovedPokemonName('');
+        setShowAlert(false); // Hide the alert
+    };
+
+    
   return (
       <div className="container">
           <h1 className="heading">P<i></i>k&eacute;dex</h1>
           <div className="pokemon-grid">
+
               {favoritePokemon.length === 0 ? (
-                  <p>No favorite Pokémon yet.</p>
+                  <h2 className="h2">No favorite Pokemon added yet.</h2>
               ) : (
+
                       favoritePokemon.map((pokemon) => (
 
                           <div key={pokemon.id} className={`pokemon-card ${pokemon?.types.find((type) => type.slot === 1)?.type.name === 'grass' ? 'green' :
@@ -68,7 +80,8 @@ function BookmarkPage({ handleClickList }) {
                                   className="pokemon-image"
                                   onClick={() => handlePokemonClick(pokemon.id)} 
               />
-                              <p className="pokemon-name">{capitalizeFirstLetter(pokemon.name)}</p>
+               <p className="pokemon-name">{capitalizeFirstLetter(pokemon.name)}</p>
+              
             </div>
           ))
         )}
@@ -76,8 +89,26 @@ function BookmarkPage({ handleClickList }) {
           <button onClick={handleListPage} className="button">
               Explore more Pokemons
           </button>
+          <div className="alert">
+              {showAlert && (
+                  <CustomAlert message={`${capitalizeFirstLetter(removedPokemonName)} has been removed from favorites.`}
+                      onClose={handleAlertClose}/>
+
+              )}    
+
+          </div>  
     </div>
   );
+}
+function CustomAlert({ message, onClose }) {
+    return (
+        <div className="custom-alert">
+            <div className="custom-alert-content">
+                <h2>{message}</h2>
+                <button onClick={onClose}>OK</button>
+            </div>
+        </div>
+    );
 }
 
 export default BookmarkPage;

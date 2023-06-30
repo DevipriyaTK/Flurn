@@ -14,22 +14,24 @@
     text-align: center;
     position: relative;
 }
+
 @media screen and (max-width: 1024px) {
-    .pokemon-details,pokemon-table,charts,stats,about,h2{
-      
+    .pokemon-details, .pokemon-table, .charts, .stats, .about, h2 {
+        /* Add your styles for max-width 1024px */
     }
 }
 
 @media screen and (max-width: 768px) {
-    .pokemon-details, pokemon-table, charts, stats, about, h2 {
+    .pokemon-details, .pokemon-table, .charts, .stats, .about, h2 {
+        /* Add your styles for max-width 768px */
     }
 }
 
 @media screen and (max-width: 480px) {
-    .pokemon-details, pokemon-table, charts, stats, about, h2 {
+    .pokemon-details, .pokemon-table, .charts, .stats, .about, h2 {
+        /* Add your styles for max-width 480px */
     }
 }
-
 
 .pokemon-details .pokemonName {
     position: absolute;
@@ -68,23 +70,21 @@
 
     .about h2 {
         position: relative;
-        top:-15%
-        
+        top: -30%;
     }
 
-    .about pokemon-table {
+    .about .pokemon-table {
         width: 100%;
         border-collapse: collapse;
-        position:relative;
-        top: 150%
-
+        position: relative;
+        margin-top: -30%;
     }
 
-    .pokemon-table td {
-        padding: 8px;
-        border: none; /* Remove border */
-        color: initial; /* Reset text color */
-    }
+.pokemon-table td {
+    padding: 8px;
+    border: none;
+    color: initial;
+}
 
 .stats {
     display: flex;
@@ -139,5 +139,5 @@
 
 .charts {
     width: 50%;
-    height: 50%
+    height: 50%;
 }
